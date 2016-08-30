@@ -13,10 +13,10 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-// Example Component
+// Users Component
 Vue.component(
-    'example',
-    require('./components/Example.vue')
+    'users',
+    require('./components/Users.vue')
 );
 
 // Laravel Passport Components
