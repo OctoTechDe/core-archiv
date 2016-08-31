@@ -8,6 +8,7 @@
                 <div class="panel-heading">Home</div>
                 <div class="panel-body">
                     Welcome after Login
+                    <create-user></create-user>
                 </div>
             </div>
         </div>

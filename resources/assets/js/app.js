@@ -19,6 +19,12 @@ Vue.component(
     require('./components/Users.vue')
 );
 
+// Create User Component
+Vue.component(
+    'create-user',
+    require('./components/CreateUser.vue')
+);
+
 // Laravel Passport Components
 Vue.component(
     'passport-clients',
