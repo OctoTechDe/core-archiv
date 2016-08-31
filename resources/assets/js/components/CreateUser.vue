@@ -1,10 +1,19 @@
 <template>
-<form class="form-horizontal">
+<form class="form-horizontal" v-on:submit.prevent="createUser">
+
+    <alert-success :form="form" message="Success!"></alert-success>
+    <alert-errors :form="form"></alert-errors>
+    <alert-success :form="form" message="Success!"></alert-success>
 
     <div class="form-group">
       <label for="name" class="col-md-2 control-label">Name</label>
       <div class="col-md-10">
         <input type="text" class="form-control" id="name" placeholder="Name" v-model="form.name">
+
+         <span class="has-error" v-if="form.errors.has('name')">
+            <strong>{{ form.errors.get('name') }}</strong>
+        </span>
+
       </div>
     </div>
 
@@ -23,8 +32,7 @@
 
     <div class="form-group">
       <div class="col-md-10 col-md-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary" @click.prevent="createUser">Submit</button>
+        <button :disabled="form.busy" type="submit" class="btn btn-primary">Create User</button>
       </div>
     </div>
 
@@ -36,17 +44,17 @@
 
         data() {
             return {
-                form: {
+                form: this.$form({
                     name: '',
                     email: '',
                     password: ''
-                }
+                })
             }
         },
 
         methods: {
             createUser() {
-                this.$http.post('api/users', this.form)
+                this.form.post('api/createUser')
                         .then(response => {
                             console.log(response.data);
                 });

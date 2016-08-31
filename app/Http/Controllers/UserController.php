@@ -29,8 +29,13 @@ class UserController extends Controller
     /*
     * Store user
     */
-    public function store(Request $request)
+    public function createUser(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|unique:users|max:100',
+            'email' => 'required'
+        ]);
+
         // Initalize new user
         $user = New User;
 

@@ -41,6 +41,28 @@ Vue.component(
     require('./components/passport/PersonalAccessTokens.vue')
 );
 
+// Form Alert Components
+import { 
+    AlertError, 
+    AlertErrors, 
+    AlertSuccess 
+} from 'vform';
+
+Vue.component(
+    'alert-error', 
+    AlertError
+);
+
+Vue.component(
+    'alert-errors', 
+    AlertErrors
+);
+
+Vue.component(
+    'alert-success',
+    AlertSuccess
+);
+
 const app = new Vue({
     el: 'body'
 });
